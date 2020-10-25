@@ -1,1 +1,22 @@
-System is building, please wait for a moment...
+<!doctype html>
+<html lang="zh_CN">
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="shzapp_des" value="login_choosetype"/>
+		<script>
+			function path(i){
+				window.location.href = "https://2fxssc.github.io/member"+i;	
+			}
+		</script>
+	</head>
+	<body>
+		<p>请选择您的登录方式：</p>
+		<a href="javascript:void(0)" onclick="path('/login/student')">
+			<li>我是学生成员</li>
+		</a>
+		<a href="javascript:void(0)" onclick="path('/login/teacher')">
+			<li>我是本班教师</li>
+		</a>
+		如果您都不是，那么可能你并没有资格使用本系统，抱歉！
+	</body>
+</html>
