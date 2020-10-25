@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh_CN">
+	<head>
+		<meta charset = "UTF-8" />
+		<script>
+			function path(i){
+				window.location.href="https://2fxssc.github.io/member"+i;	
+			}
+			function login(){
+				var username = prompt("请输入您的用户名：");
+				var password = prompt("请输入您的密码：");
+				var a = Math.random();
+				var b = Math.random();
+				var captcha = prompt("完成SHZCaptcha验证：\n"+a+"+"+b"=?");
+				if (captcha == a+b){
+						if (username == "shuzhou" && password == "Shuzhou2008"){
+							alert ("谢谢您在申诉处的参与！正在为您跳转……");
+							path("/user/student/");
+							localStorage.setItem("userkey", "admin");
+						}
+						else{
+							if (username == "huangxixi" && password == "password"){
+								alert ("谢谢您在申诉处的参与！正在为您跳转……");
+								path("/user/student/");
+								localStorage.setItem("userkey", "huangxixi");	
+							}
+							else{
+								if (username == "fuqingxuan" && password == "password"){
+									alert ("谢谢您在申诉处的参与！正在为您跳转……");
+									path("/user/student/");
+									localStorage.setItem("userkey", "fuqingxuan");	
+								}
+								else{
+									if (username == "yinziyu" && password == "password"){
+										alert ("谢谢您在申诉处的参与！正在为您跳转……");
+										path("/user/student/");
+										localStorage.setItem("userkey", "yinziyu");	
+									}
+									else{
+										if (username == "jimmymeng" && password == "password"){
+										alert ("谢谢您在申诉处的参与！正在为您跳转……");
+										path("/user/student/");
+										localStorage.setItem("userkey", "jimmymeng");	
+										}
+										else{
+											if (username == "huazihao" && password == "password"){
+												alert ("谢谢您在申诉处的参与！正在为您跳转……");
+												path("/user/student/");
+												localStorage.setItem("userkey", "huazihao");	
+											}
+										}
+						}
+									}
+						}
+								}
+						}
+							}
+						}
+						}
+				}
+				else {
+					alert ("您好，我们的系统检测到您有可能是机器人，请重试一下，谢谢！");	
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<fieldset>
+			<legend>申诉处学生成员登录</legend>
+			<input type="submit" value="点击登录" onclick="login()"/>
+			<h6>This login is protected by international laws and SHZCaptcha therefore to be protected by Shuzhou Login Tracking System (SLTS).</h6>
+		</fieldset>
