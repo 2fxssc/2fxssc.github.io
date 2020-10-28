@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="zh_CN">
+	<head>
+		<title>申诉处通知生成器</title>
+	</head>
+	<body>
+		案件号码：<input type="text" id="id"/><br>
+		审批结果：<input type="text" id="result"/><br>
+		原因：<input type="text" id="reason"/><br>
+		<input type="submit" value="生成" onclick="generate()"/><br>
+		<script>
+			function generate(){
+				document.getElementById("final").innerHTML = "您好，申诉处已经审阅您提交的案件，现对其进行回复。<br><strong>案件号："+document.getElementById("id").value+"</strong><br>您的审批结果为<b>"+document.getElementById("result").value+"</b><br>如果您的申诉通过了，恭喜您。如果您的申诉不通过，那么您可以重新提交申诉结果。<br>我们判断申诉状"+document.getElementById("result").value+"的原因是"+document.getElementById("reason").value+"<br>您如果觉得不恰当，可以和申诉处提出。我们会积极改正。<br><br><br>复旦大学第二附属学校2024届2班申诉处 谨启";
+			}
+		</script>
+		<fieldset>
+			<legend>结果</legend>
+			<span id="final"></span>
+		</fieldset>
+	</body>
+</html>
+			
