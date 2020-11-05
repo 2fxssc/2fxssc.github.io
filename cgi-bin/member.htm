@@ -1,0 +1,42 @@
+
+<!doctype html>
+<html lang="zh_CN">
+	<head>
+		<title>申诉处成员个人管理页面</title>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<script>
+			function setCookie(cname,cvalue,exdays){
+				var d = new Date();
+				d.setTime(d.getTime()+(exdays*24*60*60*1000));
+				var expires = "expires="+d.toGMTString();
+				document.cookie = cname+"="+cvalue+"; "+expires;
+			}
+			function getCookie(cname){
+				var name = cname + "=";
+				var ca = document.cookie.split(';');
+				for(var i=0; i<ca.length; i++) {
+					var c = ca[i].trim();
+					if (c.indexOf(name)==0) { return c.substring(name.length,c.length); }
+				}
+				return "";
+			}
+			function getWelcome(){
+				var cookie = getCookie("user");
+				if (cookie == "20200207") return "刘书舟";
+				else if (cookie == "20200223") return "黄圆希";
+				else if (cookie == "20200204") return "花子豪";
+				else if (cookie == "20200222") return "付晴萱";
+				else if (cookie == "20200236") return "尹梓瑜";
+				else if (cookie == "20200208") return "孟辰吉";
+				else window.location.pathname="/";
+			}
+		</script>
+	</head>
+	<body>
+		<span id="name"></span>同学，您好！
+		<script>
+			document.getElementById("name").innerHTML = getWelcome();
+		</script>
+	</body>
+</html>
