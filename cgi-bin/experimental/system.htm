@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="zh_CN">
+	<head>
+		<title>复旦大学第二附属学校2024届2班申诉处管理端</title>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<script>
+			function setCookie(cname,cvalue,exdays){
+				var d = new Date();
+				d.setTime(d.getTime()+(exdays*24*60*60*1000));
+				var expires = "expires="+d.toGMTString();
+				document.cookie = cname+"="+cvalue+"; "+expires;
+			}
+			function getCookie(cname){
+				var name = cname + "=";
+				var ca = document.cookie.split(';');
+				for(var i=0; i<ca.length; i++) {
+					var c = ca[i].trim();
+					if (c.indexOf(name)==0) { return c.substring(name.length,c.length); }
+				}
+				return "未检测到学号";
+			}
+			function getWelcome(){
+				var cookie = getCookie("user");
+				if (cookie == "20200207") return "刘书舟";
+				else if (cookie == "20200223") return "黄圆希";
+				else if (cookie == "20200204") return "花子豪";
+				else if (cookie == "20200222") return "付晴萱";
+				else if (cookie == "20200236") return "尹梓瑜";
+				else if (cookie == "20200208") return "孟辰吉";
+				else window.location.pathname="/";
+			}
+			function getBirth(){
+				var cookie = getCookie("user");
+				if (cookie == "20200207") return "2008年9月20日";
+				else if (cookie == "20200223") return "2009年2月8日";
+				else if (cookie == "20200204") return "未知";
+				else if (cookie == "20200222") return "2009年7月7日";
+				else if (cookie == "20200236") return "未知";
+				else if (cookie == "20200208") return "未知";
+				else window.location.pathname="/";
+			}
+			function getcode(){
+				var cookie = getCookie("user");
+				if (cookie == "20200207") return "SSC 440-07023";
+				else if (cookie == "20200223") return "SSC 702-02307";
+				else if (cookie == "20200204") return "SSC 992-66290";
+				else if (cookie == "20200222") return "SSC 003-00132";
+				else if (cookie == "20200236") return "SSC 939-99283";
+				else if (cookie == "20200208") return "SSC 441-08033";
+				else window.location.pathname="/";
+			}
+			function getPswd(){
+				var cookie = getCookie("user");
+				if (cookie == "20200207") return "Shuzhou2008";
+				else if (cookie == "20200223") return "123456";
+				else if (cookie == "20200204") return "123456";
+				else if (cookie == "20200222") return "123456";
+				else if (cookie == "20200236") return "123456";
+				else if (cookie == "20200208") return "123456";
+				else window.location.pathname="/";
+			}
+			function newTask(){
+				window.location.pathname="/cgi-bin/experimental/newtask.htm";
+			}
+			function getTask(){
+				var cookie = getCookie("user");
+				if (cookie == "20200207") return "<a href='javascript:void(0);' onclick='newTask()'> + 发布任务</a>";
+				else if (cookie == "20200223") return "管理员暂没有发送任务";
+				else if (cookie == "20200204") return "管理员暂没有发送任务";
+				else if (cookie == "20200222") return "管理员暂没有发送任务";
+				else if (cookie == "20200236") return "管理员暂没有发送任务";
+				else if (cookie == "20200208") return "管理员暂没有发送任务";
+				else window.location.pathname="/";
+			}
+			function getMail(){
+				var cookie = getCookie("user");
+				if (cookie == "20200207") return "<a href='javascript:void(0);'> + 为他人/自己绑定邮箱</a>";
+				else if (cookie == "20200223") return "管理员暂没有为您绑定邮箱";
+				else if (cookie == "20200204") return "管理员暂没有为您绑定邮箱";
+				else if (cookie == "20200222") return "管理员暂没有为您绑定邮箱";
+				else if (cookie == "20200236") return "管理员暂没有为您绑定邮箱";
+				else if (cookie == "20200208") return "管理员暂没有为您绑定邮箱";
+				else window.location.pathname="/";
+			}
+			function getSet(){
+				var cookie = getCookie("user");
+				if (cookie == "20200207") return "<a href='javascript:void(0);'> + 添加特定规则</a><br><a href='javascript:delete()'>&nbsp;- 删除成员</a><br><a href='javascript:admin()'> + 添加管理员</a>";
+				else if (cookie == "20200223") return "您不是管理员，没有该权限";
+				else if (cookie == "20200204") return "您不是管理员，没有该权限";
+				else if (cookie == "20200222") return "您不是管理员，没有该权限";
+				else if (cookie == "20200236") return "您不是管理员，没有该权限";
+				else if (cookie == "20200208") return "您不是管理员，没有该权限";
+				else window.location.pathname="/";
+			}
+			if (window.location.href != "https://2fxssc.github.io/cgi-bin/experimental/system.htm?from=member"){
+				window.location.href = "https://2fxssc.github.io/cgi-bin/experimental/member.htm";
+			}
+		</script>
+	</head>
+	<body>
+		<strong>复旦大学第二附属学校2024届2班申诉处管理端</strong>
+		<input type="submit" disabled="disabled" value="全新版"/>
+		<input type="submit" disabled="disabled" value="版本 1.3.230201.1001"/><br>
+		<fieldset>
+			<legend>账户信息</legend>
+			姓名：<span id="name"></span><br>
+			<script>
+				document.getElementById("name").innerHTML = getWelcome();
+			</script>
+			八位学号：<span id="stuid"></span><br>
+			<script>
+				document.getElementById("stuid").innerHTML = getCookie("user");
+			</script>
+			出生日期：<span id="birth"></span><br>
+			<script>
+				document.getElementById("birth").innerHTML = getBirth();
+			</script>
+			SSC统一身份认证号码：<span id="sscode"></span><br>
+			<script>
+				document.getElementById("sscode").innerHTML = getcode();
+			</script>
+			密码：<span id="pswd"></span>
+			<script>
+				document.getElementById("pswd").innerHTML = "<input type='submit' value='显示密码' onclick='showPswd()'/> 🛡SSC安全密保";
+				function showPswd(){
+					document.getElementById("pswd").innerHTML = getPswd()+" <input type='submit' value='隐藏密码' onclick='hidePswd()'/> 🛡SSC安全密保";
+				}
+				function hidePswd(){
+					document.getElementById("pswd").innerHTML = "<input type='submit' value='显示密码' onclick='showPswd()'/> 🛡SSC安全密保";
+				}
+			</script>
+		</fieldset>
+		<fieldset>
+			<legend>最新任务</legend>
+			<span id="tasks"></span>
+			<script>
+				document.getElementById("tasks").innerHTML = getTask();
+			</script>
+		</fieldset>
+		<fieldset>
+			<legend>个人邮箱</legend>
+			<span id="mail"></span>
+			<script>
+				document.getElementById("mail").innerHTML = getMail();
+			</script>
+		</fieldset>
+		<fieldset>
+			<legend>特定规则设置</legend>
+			<span id="settings"></span>
+			<script>
+				document.getElementById("settings").innerHTML = getSet();
+			</script>
+		</fieldset>
+		<footer>
+			<center>
+				<span>&copy;2020 复旦大学第二附属学校2024届2班申诉处&nbsp;&nbsp;版权所有</span><br>
+				<a href="javascript:void(0);" onclick="alert('功能建设中……')">建议功能改进</a>
+			</center>
+		</footer>
+	</body>
+</html>
