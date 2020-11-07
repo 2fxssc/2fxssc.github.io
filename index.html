@@ -23,6 +23,21 @@
 			function go(){
 				window.location.pathname = "/cgi-bin/member.htm";
 			}
+			function newg(){
+				window.location.pathname = "/cgi-bin/experimental/member.htm";
+			}
+			function newlogin(){
+				var username = document.getElementById("username").value;
+				var password = document.getElementById("password").value;
+				var epd = document.getElementById("epd").value;
+				if (username == "20200207" && password == "Shuzhou2008") {setCookie("user",username,epd); alert("登录成功！谢谢您在申诉处的参与！");newg();}
+				else if (username == "20200223" && password == "123456") {setCookie("user",username,epd); alert("登录成功！谢谢您在申诉处的参与！");newg();}
+				else if (username == "20200222" && password == "123456") {setCookie("user",username,epd); alert("登录成功！谢谢您在申诉处的参与！");newg();}
+				else if (username == "20200208" && password == "123456") {setCookie("user",username,epd); alert("登录成功！谢谢您在申诉处的参与！");newg();}
+				else if (username == "20200204" && password == "123456") {setCookie("user",username,epd); alert("登录成功！谢谢您在申诉处的参与！");newg();}
+				else if (username == "20200236" && password == "123456") {setCookie("user",username,epd); alert("登录成功！谢谢您在申诉处的参与！");newg();}
+				else alert("对不起，找不到您的账户信息。很可能您并不是申诉处成员。");
+			}
 			function login(){
 				var username = document.getElementById("username").value;
 				var password = document.getElementById("password").value;
@@ -43,7 +58,8 @@
 			<input type="text" name="username" id="username" placeholder="用户名"/><br>
 			<input type="password" name="password" id="password" placeholder="密码"/><br>
 			连续登录天数（1~14）：<input type="range" name="expdays" id="epd" min="1" max="14"/><br>
-			<input type="submit" name="loginBtn" onclick="login()" value="登录"/>
+			<input type="submit" name="loginBtn" onclick="login()" value="登录"/>&nbsp;&nbsp;
+			<input type="submit" name="loginBtn" onclick="newlogin()" value="新版登录"/>
 		</fieldset>
 		<h3>申诉处管理端新功能</h3>
 		<h5>本地支持</h5>
@@ -62,5 +78,9 @@
 			}
 			document.getElementById("detectclinet").innerHTML = "您现在使用的服务端是<strong>SSC "+window.location.hostname+"</strong>。"+thanks();
 		</script>
+		<h5>新版管理端</h5>
+		<span style="color:gray">
+			申诉处管理端增加新版管理端测试发行。你可以点击上面的新版登录按钮使用新版系统。
+		</span>
 	</body>
 </html>
