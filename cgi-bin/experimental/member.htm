@@ -1,0 +1,45 @@
+
+<html> 
+<head> 
+<title>新版系统加载中……</title> 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<style type="text/css"> 
+.container{  
+   width:450px;  
+   border:1px solid #0ba3ef;  
+   height:25px;  
+ }
+#bar{  
+   background:#0ba3ef;  
+   float:left; 
+   height:100%;  
+   text-align:center;  
+   line-height:150%; 
+ }  
+</style>  
+<script type="text/javascript">  
+  function run(){  
+        var bar = document.getElementById("bar"); 
+        var total = document.getElementById("total"); 
+    bar.style.width=parseInt(bar.style.width) + 1 + "%";  
+    total.innerHTML = bar.style.width; 
+    if(bar.style.width == "100%"){  
+      window.clearTimeout(timeout); 
+	  window.location.href="https://2fxssc.github.io/cgi-bin/experimental/system.htm?from=member";
+      return; 
+    } 
+    var timeout=window.setTimeout("run()",Math.floor(Math.random()*1000)*Math.floor(Math.random()*8)); 
+  } 
+    window.onload = function(){  
+       run(); 
+    }  
+</script> 
+</head> 
+<body> 
+	全新系统加载中…… <strong><span id="total"></span></strong>
+  <div class="container"> 
+   <span id="bar" style="width:0%;"></div>  
+  </div>  
+</body> 
+</html>
