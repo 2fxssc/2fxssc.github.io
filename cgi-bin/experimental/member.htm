@@ -48,6 +48,13 @@
         var total = document.getElementById("total"); 
     bar.style.width=parseInt(bar.style.width) + 1 + "%";  
     total.innerHTML = bar.style.width; 
+	  if(bar.style.width == "1%") changeCurr(0);
+	  if(bar.style.width == "15%") changeCurr(1);
+	  if(bar.style.width == "31%") changeCurr(2);
+	  if(bar.style.width == "41%") changeCurr(3);
+	  if(bar.style.width == "63%") changeCurr(4);
+	  if(bar.style.width == "69%") changeCurr(5);
+	  if(bar.style.width == "90%") changeCurr(6);
     if(bar.style.width == "100%"){  
       window.clearTimeout(timeout); 
 	  window.location.href="https://2fxssc.github.io/cgi-bin/experimental/system.htm?from=member";
@@ -65,5 +72,18 @@
   <div class="container"> 
    <span id="bar" style="width:0%;"></div>  
   </div>  
+	<b>目前加载的内容：</b>
+	<span id="current"></span>
+	<script>
+		function changeCurr(i){
+			if (i==0) document.getElementById("current").innerHTML = "Node.Js Support (100 MB)";
+			else if (i==1) document.getElementById("current").innerHTML = "User Management Service - FDN 2FX API (250.8 MB)";
+			else if (i==2) document.getElementById("current").innerHTML = "User Functional Service of Administration - FDN 2FX API (464.86 MB)";
+			else if (i==3) document.getElementById("current").innerHTML = "Delete Administration of Special Services for Administrators - FDN 2FX API (1.3 GB)";
+			else if (i==4) document.getElementById("current").innerHTML = "Support of Code Blocks Administrators Administration - FDN 2FX API (912.22 MB)";
+			else if (i==5) document.getElementById("current").innerHTML = "IO C++ & Python and also Javascript, Python Shell and Compiler Support - FDN 2FX API (4.8 GB)";
+			else if (i==6) document.getElementById("current").innerHTML = "Administration Finalization - FDN 2FX API (10.33 MB)";
+		}
+	</script>
 </body> 
 </html>
