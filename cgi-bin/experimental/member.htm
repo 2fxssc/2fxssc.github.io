@@ -1,3 +1,4 @@
+
 <html> 
 <head> 
 <title>新版系统加载中……</title> 
@@ -32,15 +33,14 @@
 				}
 				return "未检测到学号";
 			}
-	if (cookie == "20200207");
-				else if (cookie == "20200223");
-				else if (cookie == "20200204");
-				else if (cookie == "20200222");
-				else if (cookie == "20200236");
-				else if (cookie == "20200208");
+	if (getCookie("user") == "20200207");
+				else if (getCookie("user") == "20200223");
+				else if (getCookie("user") == "20200204");
+				else if (getCookie("user") == "20200222");
+				else if (getCookie("user") == "20200236");
+				else if (getCookie("user") == "20200208");
 				else {
 					alert("您未登录！");
-					window.location.pathname="/cgi-bin/experimental/login.htm";
 				}
   function run(){  
         var bar = document.getElementById("bar"); 
