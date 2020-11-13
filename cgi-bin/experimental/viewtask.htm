@@ -41,7 +41,7 @@
 				else if (cookie == "20200222") return "付晴萱";
 				else if (cookie == "20200236") return "尹梓瑜";
 				else if (cookie == "20200208") return "孟辰吉";
-				else window.location.pathname="/cgi-bin/experimental/tasks/login.htm";
+				else window.location.pathname="/cgi-bin/experimental/tasklogin.htm";
 			}
 		</script>
 	</head>
@@ -50,7 +50,7 @@
 		任务详情
 		<hr>
 		姓名：<span id="name"></span>&nbsp;八位学号：<span id="stuid"></span>&nbsp;
-		<input type="submit" name="logout" value="退出" onclick="setCookie('user',undefined,-1);"/>
+		<input type="submit" name="logout" value="退出" onclick="window.location.pathname='/cgi-bin/experimental/tasklogin.htm'"/>
 		<hr>
 		<script>
 			document.getElementById("name").innerHTML=getWelcome();
