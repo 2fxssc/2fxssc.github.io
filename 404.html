@@ -2,23 +2,39 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1, minimum-scale=1, width=device-width">
-    <title>Error 404 (Not Found)!!!</title>
-    <style>
-      *{margin:0;padding:0}html,code{font:15px/22px arial,sans-serif}html{background:#fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;min-height:180px;padding:30px 0 15px}* > body{background:url(/static/blogv2/images/errors/robot.png) 100% 5px no-repeat;padding-right:205px}p{margin:11px 0 22px;overflow:hidden}ins{color:#777;text-decoration:none}a img{border:0}@media screen and (max-width:772px){body{background:none;margin-top:0;max-width:none;padding-right:0}}#logo{background:url(/static/blogv2/images/errors/googlelogo_color_150_1x.png) no-repeat;margin-left:-5px}@media only screen and (min-resolution:192dpi){#logo{background:url(/static/blogv2/images/errors/googlelogo_color_150_2x.png) no-repeat 0% 0%/100% 100%;-moz-border-image:url(/static/blogv2/images/errors/googlelogo_color_150_2x.png) 0}}@media only screen and (-webkit-min-device-pixel-ratio:2){#logo{background:url(/static/blogv2/images/errors/googlelogo_color_150_2x.png) no-repeat;-webkit-background-size:100% 100%}}#logo{display:inline-block;height:54px;width:150px}
-    </style>
+    <title>Single Page Apps for GitHub Pages</title>
+    <script type="text/javascript">
+      // Single Page Apps for GitHub Pages
+      // MIT License
+      // https://github.com/rafgraph/spa-github-pages
+      // This script takes the current url and converts the path and query
+      // string into just a query string, and then redirects the browser
+      // to the new url with only a query string and hash fragment,
+      // e.g. https://www.foo.tld/one/two?a=b&c=d#qwe, becomes
+      // https://www.foo.tld/?/one/two&a=b~and~c=d#qwe
+      // Note: this 404.html file must be at least 512 bytes for it to work
+      // with Internet Explorer (it is currently > 512 bytes)
+
+      // If you're creating a Project Pages site and NOT using a custom domain,
+      // then set pathSegmentsToKeep to 1 (enterprise users may need to set it to > 1).
+      // This way the code will only replace the route part of the path, and not
+      // the real directory in which the app resides, for example:
+      // https://username.github.io/repo-name/one/two?a=b&c=d#qwe becomes
+      // https://username.github.io/repo-name/?/one/two&a=b~and~c=d#qwe
+      // Otherwise, leave pathSegmentsToKeep as 0.
+      var pathSegmentsToKeep = 1;
+
+      var l = window.location;
+      l.replace(
+        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+        l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
+        l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+        (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+        l.hash
+      );
+
+    </script>
   </head>
-
   <body>
-    <noscript><iframe src="https://www.fudan.edu.cn/generate404"></iframe></noscript>
-
-
-    <a href="https://www.fudan.edu.cn"><img src="/fudanlogo.jpg" width=250 height=156/></a>
-    <p><b>404&nbsp;</b> <ins>这是一个错误。</ins></p>
-    <p>被访问到的资源路径<span id="path"></span>在这个服务器上没有被我们找到。
-      <ins>这就是我们所知道的一切了。</ins></p>
-	  <script>
-		  document.getElementById("path").innerHTML = window.location.pathname;
-	  </script>
-		  </body>
+  </body>
 </html>
