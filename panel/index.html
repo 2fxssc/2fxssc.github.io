@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="zh_CN">
+	<head class="2FX API Power">
+		<title>复旦大学第二附属学校2024届2班申诉处管理端</title>
+		<script type="text/javascript">
+		function setCookie(cname,cvalue,exdays){
+				var d = new Date();
+				d.setTime(d.getTime()+(exdays*24*60*60*1000));
+				var expires = "expires="+d.toGMTString();
+				document.cookie = cname+"="+cvalue+"; "+expires;
+			}
+			function getCookie(cname){
+				var name = cname + "=";
+				var ca = document.cookie.split(';');
+				for(var i=0; i<ca.length; i++) {
+					var c = ca[i].trim();
+					if (c.indexOf(name)==0) { return c.substring(name.length,c.length); }
+				}
+				return "未检测到学号";
+			}
+			function getWelcome(){
+				var cookie = getCookie("user");
+				if (cookie == "20200207") return "刘书舟";
+				else if (cookie == "20200223") return "黄圆希";
+				else if (cookie == "20200204") return "花子豪";
+				else if (cookie == "20200222") return "付晴萱";
+				else if (cookie == "20200236") return "尹梓瑜";
+				else if (cookie == "20200208") return "孟辰吉";
+				else window.location.pathname="/";
+			}
+			function getBirth(){
+				var cookie = getCookie("user");
+				if (cookie == "20200207") return "2008年9月20日";
+				else if (cookie == "20200223") return "2009年2月8日";
+				else if (cookie == "20200204") return "未知";
+				else if (cookie == "20200222") return "2009年7月7日";
+				else if (cookie == "20200236") return "未知";
+				else if (cookie == "20200208") return "未知";
+				else window.location.pathname="/";
+			}
+			function getcode(){
+				var cookie = getCookie("user");
+				if (cookie == "20200207") return "SSC 440-07023";
+				else if (cookie == "20200223") return "SSC 702-02307";
+				else if (cookie == "20200204") return "SSC 992-66290";
+				else if (cookie == "20200222") return "SSC 003-00132";
+				else if (cookie == "20200236") return "SSC 939-99283";
+				else if (cookie == "20200208") return "SSC 441-08033";
+				else window.location.pathname="/";
+			}
+			function getPswd(){
+				var cookie = getCookie("user");
+				if (cookie == "20200207") return "Shuzhou2008";
+				else if (cookie == "20200223") return "123456";
+				else if (cookie == "20200204") return "123456";
+				else if (cookie == "20200222") return "123456";
+				else if (cookie == "20200236") return "123456";
+				else if (cookie == "20200208") return "123456";
+				else window.location.pathname="/";
+			}
+			function newTask(){
+				window.location.pathname="/cgi-bin/experimental/newtask.htm";
+			}
+			function getTask(){
+				var cookie = getCookie("user");
+				if (cookie == "20200207") return "<a href='javascript:void(0);' onclick='newTask()'> + 发布任务</a><br>已发布：<br><frameset><span style='color:red'> <strong>您有一条新任务待收</strong><br> <strong>申诉人（原告）：</strong>曹可馨<br> <strong>被告人：</strong>宁东霖<br> <strong>状告内容：</strong>愿意加宁东霖好友，但是宁东霖拒绝，并发送国际友好手势。<br> <strong>发布人：</strong>刘书舟 </span><hr>发送名单：<br> <input type='checkbox'>223黄圆希&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type='checkbox'>204花子豪&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type='checkbox'>208孟辰吉&nbsp;&nbsp;&nbsp;&nbsp;<br> <input type='checkbox'>207刘书舟<input type='submit' value='本人' disabled='disabled'/>&nbsp;&nbsp;&nbsp;&nbsp;<br> <input type='checkbox'>222付晴萱&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type='checkbox'>236尹梓瑜</frameset>";
+				else if (cookie == "20200223") return "<span style='color:red'> <strong>您有一条新任务待收</strong><br> <strong>申诉人（原告）：</strong>曹可馨<br> <strong>被告人：</strong>宁东霖<br> <strong>状告内容：</strong>愿意加宁东霖好友，但是宁东霖拒绝，并发送国际友好手势。<br> <strong>发布人：</strong>刘书舟 </span>";
+				else if (cookie == "20200204") return "管理员拒绝发送任务到您的账户";
+				else if (cookie == "20200222") return "<span style='color:red'> <strong>您有一条新任务待收</strong><br> <strong>申诉人（原告）：</strong>曹可馨<br> <strong>被告人：</strong>宁东霖<br> <strong>状告内容：</strong>愿意加宁东霖好友，但是宁东霖拒绝，并发送国际友好手势。<br> <strong>发布人：</strong>刘书舟 </span>";
+				else if (cookie == "20200236") return "<span style='color:red'> <strong>您有一条新任务待收</strong><br> <strong>申诉人（原告）：</strong>曹可馨<br> <strong>被告人：</strong>宁东霖<br> <strong>状告内容：</strong>愿意加宁东霖好友，但是宁东霖拒绝，并发送国际友好手势。<br> <strong>发布人：</strong>刘书舟 </span>";
+				else if (cookie == "20200208") return "<span style='color:red'> <strong>您有一条新任务待收</strong><br> <strong>申诉人（原告）：</strong>曹可馨<br> <strong>被告人：</strong>宁东霖<br> <strong>状告内容：</strong>愿意加宁东霖好友，但是宁东霖拒绝，并发送国际友好手势。<br> <strong>发布人：</strong>刘书舟 </span>";
+				else window.location.pathname="/";
+			}
+			function getMail(){
+				var cookie = getCookie("user");
+				if (cookie == "20200207") return "<a href='javascript:void(0);'> + 为他人/自己绑定邮箱</a>";
+				else if (cookie == "20200223") return "管理员暂没有为您绑定邮箱";
+				else if (cookie == "20200204") return "管理员暂没有为您绑定邮箱";
+				else if (cookie == "20200222") return "管理员暂没有为您绑定邮箱";
+				else if (cookie == "20200236") return "管理员暂没有为您绑定邮箱";
+				else if (cookie == "20200208") return "管理员暂没有为您绑定邮箱";
+				else window.location.pathname="/";
+			}
+			function getSet(){
+				var cookie = getCookie("user");
+				if (cookie == "20200207") return "<a href='javascript:void(0);'> + 添加特定规则</a><br><a href='javascript:delete()'>&nbsp;- 删除成员</a><br><a href='javascript:admin()'> + 添加管理员</a>";
+				else if (cookie == "20200223") return "您不是管理员，没有该权限";
+				else if (cookie == "20200204") return "您不是管理员，没有该权限";
+				else if (cookie == "20200222") return "您不是管理员，没有该权限";
+				else if (cookie == "20200236") return "您不是管理员，没有该权限";
+				else if (cookie == "20200208") return "您不是管理员，没有该权限";
+				else window.location.pathname="/";
+			}
+		</script>
+		<style>
+			.gr{
+				color: gray;
+			}
+		</style>
+	</head>
+	<body>
+		<h4 class="gr">
+			复旦大学第二附属学校2024届2班申诉处管理端
+			<input type="submit" class="version" value="v2.0" name="viewVersion" disabled="disabled"/>
+		</h4>
+		<hr>
+		<fieldset>
+			<legend class="lgd_norset">基本设置</legend>
+			姓名：<span id="name"></span><br>
+			学号：<span id="stuid"></span><br>
+			SSC统一身份码：<span id="sscode"></span><br>
+			<script>
+				window.onload = function(){
+					document.getElementById("name").innerHTML = "<input type='text' disabled='disabled' name='user_name' value='"+getWelcome()+"'/>";
+					document.getElementById("stuid").innerHTML = "<input type='text' disabled='disabled' name='user_id' value='"+getCookie("user")+"'/>";
+					document.getElementById("sscode").innerHTML = "<input type='text' disabled='disabled' name='ssc_code' value='"+getCode"'/>";
+				}
+			</script>
