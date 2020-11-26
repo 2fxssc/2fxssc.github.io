@@ -124,6 +124,7 @@
 					document.getElementById("pswd").innerHTML = "<input type='text' disabled='disabled' name='pswd' value='******'/><input type='submit' name='view_pswd' onclick='showps()' value='显示密码'/>";
 					document.getElementById("getTask").innerHTML = "<span>"+getTask()+"</span>";
 					document.getElementById("shzmail").innerHTML = getMail();
+					document.getElementById("settings").innerHTML = getSet();
 				}
 				function showps(){
 					document.getElementById("pswd").innerHTML = "<input type='text' disabled='disabled' name='pswd' value='"+getPswd()+"'/><input type='submit' name='view_pswd' onclick='hideps()' value='隐藏密码'/>";
