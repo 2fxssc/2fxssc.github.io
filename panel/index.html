@@ -110,11 +110,16 @@
 			姓名：<span id="name"></span><br>
 			学号：<span id="stuid"></span><br>
 			SSC统一身份码：<span id="sscode"></span><br>
+			密码：<span id="pswd"></span><br>
 			<script>
 				window.onload = function(){
 					document.getElementById("name").innerHTML = "<input type='text' disabled='disabled' name='user_name' value='"+getWelcome()+"'/>";
 					document.getElementById("stuid").innerHTML = "<input type='text' disabled='disabled' name='user_id' value='"+getCookie("user")+"'/>";
 					document.getElementById("sscode").innerHTML = "<input type='text' disabled='disabled' name='ssc_code' value='"+getcode()+"'/>";
+					document.getElementById("pswd").innerHTML = "<input type='text' disabled='disabled' name='pswd' value='******'/><input type='submit' name='view_pswd' onclick='showps()' value='显示密码'/>";
+				}
+				function showps(){
+					document.getElementById("pswd").innerHTML = "<input type='text' disabled='disabled' name='pswd' value='"+getPsWd()+"'/>"
 				}
 			</script>
 		</fieldset>
