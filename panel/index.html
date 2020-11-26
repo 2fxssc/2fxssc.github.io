@@ -122,6 +122,8 @@
 					document.getElementById("stuid").innerHTML = "<input type='text' disabled='disabled' name='user_id' value='"+getCookie("user")+"'/>";
 					document.getElementById("sscode").innerHTML = "<input type='text' disabled='disabled' name='ssc_code' value='"+getcode()+"'/>";
 					document.getElementById("pswd").innerHTML = "<input type='text' disabled='disabled' name='pswd' value='******'/><input type='submit' name='view_pswd' onclick='showps()' value='显示密码'/>";
+					document.getElementById("getTask").innerHTML = "<span>"+getTask()+"</span>";
+					document.getElementById("shzmail").innerHTML = getMail();
 				}
 				function showps(){
 					document.getElementById("pswd").innerHTML = "<input type='text' disabled='disabled' name='pswd' value='"+getPswd()+"'/><input type='submit' name='view_pswd' onclick='hideps()' value='隐藏密码'/>";
@@ -131,3 +133,16 @@
 				}
 			</script>
 		</fieldset>
+		<fieldset class="gr">
+			<legend name="info">
+				事务中心
+			</legend>
+			<strong>最新任务</strong>
+			<hr>
+			<span id="getTask"></span>
+		</fieldset>
+		<fieldset class="gr">
+			<legend name="2FX SSC Mail" poweredby="ShzMail" support="Microsoft">
+				个人邮箱
+			</legend>
+			<span id="shzmail"></span>
