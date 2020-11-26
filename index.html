@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="zh_CN">
 	<head>
@@ -21,22 +22,7 @@
 				return "";
 			}
 			function go(){
-				window.location.pathname = "/cgi-bin/member.htm";
-			}
-			function newg(){
-				window.location.pathname = "/cgi-bin/experimental/member.htm";
-			}
-			function newlogin(){
-				var username = document.getElementById("username").value;
-				var password = document.getElementById("password").value;
-				var epd = document.getElementById("epd").value;
-				if (username == "20200207" && password == "Shuzhou2008") {setCookie("user",username,epd); alert("登录成功！谢谢您在申诉处的参与！");newg();}
-				else if (username == "20200223" && password == "123456") {setCookie("user",username,epd); alert("登录成功！谢谢您在申诉处的参与！");newg();}
-				else if (username == "20200222" && password == "123456") {setCookie("user",username,epd); alert("登录成功！谢谢您在申诉处的参与！");newg();}
-				else if (username == "20200208" && password == "123456") {setCookie("user",username,epd); alert("登录成功！谢谢您在申诉处的参与！");newg();}
-				else if (username == "20200204" && password == "123456") {setCookie("user",username,epd); alert("登录成功！谢谢您在申诉处的参与！");newg();}
-				else if (username == "20200236" && password == "123456") {setCookie("user",username,epd); alert("登录成功！谢谢您在申诉处的参与！");newg();}
-				else alert("对不起，找不到您的账户信息。很可能您并不是申诉处成员。");
+				window.location.href="https://2fxssc.github.io/panel/";	
 			}
 			function login(){
 				var username = document.getElementById("username").value;
@@ -51,36 +37,22 @@
 				else alert("对不起，找不到您的账户信息。很可能您并不是申诉处成员。");
 			}
 		</script>
+		<style>
+			.gr{
+				color:gray;
+			}
+		</style>
 	</head>
-	<body>
+	<body class="gr">
 		<fieldset>
-			<legend>申诉处成员登录</legend>
+			<legend>申诉处成员登录<input type="submit" disabled="disabled" version=2 value="v2.0"/></legend>
 			<input type="text" name="username" id="username" placeholder="用户名"/><br>
 			<input type="password" name="password" id="password" placeholder="密码"/><br>
-			连续登录天数（1~14）：<input type="range" name="expdays" id="epd" min="1" max="14"/><br>
-			<input type="submit" name="loginBtn" onclick="login()" value="登录"/>&nbsp;&nbsp;
-			<input type="submit" name="loginBtn" onclick="newlogin()" value="新版登录"/>
+			连续登录天数（1~31天）：<input type="range" name="expdays" id="epd" min="1" max="31"/><br>
+			<a href="javascript:void(0);" onclick="alert('连续登录天数是我们用来记录你的加密登录信息（使用ShzEncrypt-SEC3.0加密）用于Cookie的有效期限。')" style="color:lightgreen">
+				连续登录天数是什么？
+			</a><br>
+			<input type="submit" name="loginBtn" onclick="login()" value="登录"/>
 		</fieldset>
-		<h3>申诉处管理端新功能</h3>
-		<h5>本地支持</h5>
-		<span style="color:gray">
-			申诉处管理端增加本地支持。
-			可以通过SSC内网使用<a href="javascript:void(0);" onclick="window.location.href='http://ssc.2fx'">ssc.2fx</a>
-			以及<a href="javascript:void(0);" onclick="window.location.href='http://ssc.2fx.fudan.edu.cn'">ssc.2fx.fudan.edu.cn<a>
-			来使用申诉出管理端功能。
-		</span>
-		<span id="detectclinet"></span>
-		<script>
-			function thanks(){
-				if (window.location.hostname=="ssc.2fx") return "<strong>您现在使用的是我们的内网SSC，谢谢您的使用！</strong>";
-				else if (window.location.hostname=="ssc.2fx.fudan.edu.cn") return "<strong>您现在使用的是我们的内网SSC，谢谢您的使用！</strong>";
-				else return "<strong>推荐使用更安全的SSC内网通道。</strong>";
-			}
-			document.getElementById("detectclinet").innerHTML = "您现在使用的服务端是<strong>SSC "+window.location.hostname+"</strong>。"+thanks();
-		</script>
-		<h5>新版管理端</h5>
-		<span style="color:gray">
-			申诉处管理端增加新版管理端测试发行。你可以点击上面的新版登录按钮使用新版系统。
-		</span>
 	</body>
 </html>
