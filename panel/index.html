@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="zh_CN">
 	<head class="2FX API Powered">
@@ -35,7 +36,7 @@
 				else if (cookie == "20200223") return "2009年2月8日";
 				else if (cookie == "20200204") return "未知";
 				else if (cookie == "20200222") return "2009年7月7日";
-				else if (cookie == "20200236") return "未知";
+				else if (cookie == "20200236") return "2008年11曰24日";
 				else if (cookie == "20200208") return "未知";
 				else window.location.pathname="/";
 			}
@@ -92,6 +93,46 @@
 				else if (cookie == "20200208") return "您不是管理员，没有该权限";
 				else window.location.pathname="/";
 			}
+			function getWork(){
+				var cookie = getCookie("user");
+				if (cookie == "20200207") return "纪律委员";
+				else if (cookie == "20200223") return "正班长";
+				else if (cookie == "20200204") return "纪律委员";
+				else if (cookie == "20200222") return "学习委员";
+				else if (cookie == "20200236") return "副班长";
+				else if (cookie == "20200208") return "小队长";
+				else window.location.pathname="/";
+			}
+			function getkdb(){
+				var cookie = getCookie("user");
+				if (cookie == "20200207") return "英语课代表";
+				else if (cookie == "20200223") return "英语课代表";
+				else if (cookie == "20200204") return "无";
+				else if (cookie == "20200222") return "数学课代表/地理课代表";
+				else if (cookie == "20200236") return "无";
+				else if (cookie == "20200208") return "无";
+				else window.location.pathname="/";
+			}
+			function getsyb(){
+				var cookie = getCookie("user");
+				if (cookie == "20200207") return "数学提高1/语文素养";
+				else if (cookie == "20200223") return "数学提高1/语文素养";
+				else if (cookie == "20200204") return "数学提高1";
+				else if (cookie == "20200222") return "数学素养/英语素养";
+				else if (cookie == "20200236") return "数学提高1/英语素养";
+				else if (cookie == "20200208") return "无";
+				else window.location.pathname="/";
+			}
+			function sybjob(){
+				var cookie = getCookie("user");
+				if (cookie == "20200207") return "语文素养组长";
+				else if (cookie == "20200223") return "无";
+				else if (cookie == "20200204") return "无";
+				else if (cookie == "20200222") return "英语素养课代表";
+				else if (cookie == "20200236") return "无";
+				else if (cookie == "20200208") return "无";
+				else window.location.pathname="/";
+			}
 		</script>
 		<style>
 			.gr{
@@ -109,6 +150,11 @@
 			<legend class="lgd_norset">基本设置</legend>
 			姓名：<span id="name"></span><br>
 			学号：<span id="stuid"></span><br>
+			职位：<span id="job"></span><br>
+			课代表职务：<span id="kdb"></span><br>
+			素养班课程：<span id="syb"></span><br>
+			素养班职务：<span id="sybjob"></span><br>
+			出生日期：<span id="birth"></span><br>
 			SSC统一身份码：<span id="sscode"></span><br>
 			密码：<span id="pswd"></span><br>
 			<strong class="gr" name="_options">
@@ -118,6 +164,11 @@
 			<input type="submit" name="change_pswd" onclick="alert('功能开发中……')" value="实名认证"/>
 			<script>
 				window.onload = function(){
+					document.getElementById("sybjob").innerHTML = "<input type='text' disabled='disabled' name='job' value='"+sybjob()+"'/>";
+					document.getElementById("syb").innerHTML = "<input type='text' disabled='disabled' name='job' value='"+getsyb()+"'/>";
+					document.getElementById("kdb").innerHTML = "<input type='text' disabled='disabled' name='job' value='"+getkdb()+"'/>";
+					document.getElementById("job").innerHTML = "<input type='text' disabled='disabled' name='job' value='"+getWork()+"'/>";
+					document.getElementById("birth").innerHTML = "<input type='text' disabled='disabled' name='birth' value='"+getBirth()+"'/>";
 					document.getElementById("name").innerHTML = "<input type='text' disabled='disabled' name='user_name' value='"+getWelcome()+"'/>";
 					document.getElementById("stuid").innerHTML = "<input type='text' disabled='disabled' name='user_id' value='"+getCookie("user")+"'/>";
 					document.getElementById("sscode").innerHTML = "<input type='text' disabled='disabled' name='ssc_code' value='"+getcode()+"'/>";
@@ -140,7 +191,9 @@
 			</legend>
 			<strong>最新任务</strong>
 			<hr>
-			<span id="getTask"></span>
+			<span id="getTask"></span><br><hr>
+			<strong>填写诉状</strong>
+			目前服务暂未开通
 		</fieldset>
 		<fieldset class="gr">
 			<legend name="2FX SSC Mail" poweredby="ShzMail" support="Microsoft">
