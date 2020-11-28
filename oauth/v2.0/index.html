@@ -1,7 +1,7 @@
+
 <!doctype html>
 <html lang="zh_CN">
 	<head name="consf" class="2FX API Powered">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title name="checkinfo" class="CHECK_INFO">
 			确认登录信息
 		</title>
@@ -144,4 +144,39 @@ function showError(error){
             {	
             	i --;
                 //为什么会 --？ 因为如果条件成立，那么本轮循环就结束进行下一轮循环（自然i就加1了），那么本轮本应该取出的字符就没有了
-                //到最后会少一
+                //到最后会少一个字符 缺席
+                continue;//终止本轮循环 进行下一轮
+            }
+            result += char;
+        }
+        code_box.innerHTML = result;
+    }
+    //点击事件
+	function captcha(){
+		window.location.href="https://2fxssc.github.io/captcha.htm";
+	}
+    code_box.onclick = function(){
+		code_box.style = "background-color:#00ff00";
+		refreshCode();
+	};
+		function check(){
+			var codes = document.getElementById("vericode").value;
+			if (codes == code_box.innerHTML){
+				code_box.style = "background-color:#0000ff";
+				code_box.innerHTML = "验证码正确";	
+				setTimeout(5000,captcha());
+			}
+			else{
+				code_box.innerHTML = "验证码错误，点击重试。";	
+				code_box.style = "background-color:#ff0000";
+			}
+		}
+</script>	<br>
+			<copyright style="Font-Family:'Product Sans'">Powered by <strong>ShzCaptcha</strong></copyright>
+			<br>
+			<style>copyright.auth{Font-Family:'Product Sans';font-size:14px;}</style>
+			<copyright class="auth">
+				This ShzCaptcha Clinet is Certified by the ShzCaptcha Network and therefore is protected by global copyright. This ShzCaptcha Challenge Clinet is athoronized to <strong>2FX SSC(复旦大学第二附属学校2024届2班申诉处)</strong>.</h6>
+		</fieldset>
+	</body>
+</html>
