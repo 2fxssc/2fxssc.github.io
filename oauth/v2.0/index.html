@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="zh_CN">
+	<head name="consf" class="2FX API Powered">
+		<title name="checkinfo" class="CHECK_INFO">
+			确认登录信息
+		</title>
+		<style>
+			.vc {
+	width: 80px;
+	height: 36px;
+	background-color: #00ff00;
+	line-height: 36px;
+	text-align: center;
+	color: #fff;
+	font-size: 14px;
+	margin: 30px auto;
+	cursor: pointer;
+	-webkit-user-select: none; /*禁止用户选中文字*/
+}
+			.err {
+	width: 80px;
+	height: 36px;
+	background-color: #ff0000;
+	line-height: 36px;
+	text-align: center;
+	color: #fff;
+	font-size: 14px;
+	margin: 30px auto;
+	cursor: pointer;
+	-webkit-user-select: none; /*禁止用户选中文字*/
+}
+		</style>
+		<script name="geolocation" type="text/javascript">
+			function getCookie(cname){
+				var name = cname + "=";
+				var ca = document.cookie.split(';');
+				for(var i=0; i<ca.length; i++) {
+					var c = ca[i].trim();
+					if (c.indexOf(name)==0) { return c.substring(name.length,c.length); }
+				}
+				return "未检测到学号";
+			}
+			function sscadr(){
+				var a = Math.floor(Math.random()*10000);
+				var b = Math.floor(Math.random()*10000);
+				var c = Math.floor(Math.random()*10000);
+				var d = Math.floor(Math.random()*10000);
+				var e = Math.floor(Math.random()*10000);
+				var f = Math.floor(Math.random()*10000);
+				return a+"::"+b+"::"+c+"::"+d+"::"+e+"::"+f;
+			}
+		</script>
+		<style>
+			.gr {
+				color : gray;
+			}
+			shz.code {
+				Font-Family : "Consolas";
+				color : black;
+			}
+		</style>
+	</head>
+	<body name="consfgui" class="gr">
+		<fieldset>
+			访问SSC无线地址：<code><span id="addr"></span></code><br>
+			访问地区：<code><span id="out"></span></code><br>
+			访问网址：<code><span id="web"></span></code><br>
+			SSC调用方式：<code><span id="pro"></span></code><br>
+			SSC用户返回值：<code><span id="user"></span></code><br>
+			访问代码：<code><code id="code"></code></code><br>
+			<script>
+				document.getElementById("code").innerHTML = window.location.protocol+"200";
+				document.getElementById("user").innerHTML = "tls:sec/sscauth?user="+getCookie("user");
+				document.getElementById("web").innerHTML = window.location.pathname;
+				document.getElementById("pro").innerHTML = window.location.protocol+"ssc/sec3.0";
+				document.getElementById("addr").innerHTML = sscadr();
+				let x=document.getElementById("out");
+function getLocation(){
+    if (navigator.geolocation){
+        navigator.geolocation.getCurrentPosition(showPosition,showError, {timeout:2000});
+    }
+    else{
+        x.innerHTML="该浏览器不支持定位。";
+    }
+}
+function showPosition(position){
+    x.innerHTML="纬度: " + position.coords.latitude + 
+    "<br>经度: " + position.coords.longitude; 
+}
+function showError(error){
+    switch(error.code) {
+        case error.PERMISSION_DENIED:
+            x.innerHTML="用户拒绝对获取地理位置的请求。"
+            break;
+        case error.POSITION_UNAVAILABLE:
+            x.innerHTML="位置信息是不可用的。"
+            break;
+        case error.TIMEOUT:
+            x.innerHTML="请求用户地理位置超时。"
+            break;
+        case error.UNKNOWN_ERROR:
+            x.innerHTML="未知错误。"
+            break;
+    }
+}
+			</script>
+		</fieldset>
+		<br>
+		<fieldset>
+			<legend><h6>ShzCaptcha 2.0 Challenge</h6></legend>
+		请填写验证码继续您的登录进程：<br>
+		<input type="text" id="vericode" placeholder="验证码">
+		<span class="vc" id="code_box">Af3D</span>
+		<input type="submit" id="verify" onclick="check()" value="验证">
+	<script>
+		function setCookie(cname,cvalue,exdays){
+				var d = new Date();
+				d.setTime(d.getTime()+(exdays*24*60*60*1000));
+				var expires = "expires="+d.toGMTString();
+				document.cookie = cname+"="+cvalue+"; "+expires;
+			}
+    var code_box = document.getElementById("code_box");
+ 	window.onload = function(){
+		refreshCode();	
+	}
+    function refreshCode() {
+ 		
+    	//62个字符 随机选择4位
+        var code = '0123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM',
+            char = '',
+            result = '';
+ 
+        for (var i = 0; i < 4; i++) {
+ 
+            //随机选择一位  （0,61） 写出0到61的随机的索引数字
+            var code_index = Math.round(Math.random()*61);
+            //得到随机的索引  取出随机地字符
+            var char = code[code_index];
+            //随机取出的字符 存在几个相同重复的问题 ，而且对于字母，不能区分大小写。
+            // 避免重复的思路是：取出字符之后,和最后的result对比一下，看看里边是不是已经存在了，如果存在本次循环就终止，进行下一次
+            if (result.toUpperCase().indexOf(char.toUpperCase()) > -1)
+            //indexOf() == -1 说明结果里边没有要找的字符 那么 > -1 就是 里边有重复的字符
+            {	
+            	i --;
+                //为什么会 --？ 因为如果条件成立，那么本轮循环就结束进行下一轮循环（自然i就加1了），那么本轮本应该取出的字符就没有了
+                //到最后会少一个字符 缺席
+                continue;//终止本轮循环 进行下一轮
+            }
+            result += char;
+        }
+        code_box.innerHTML = result;
+    }
+    //点击事件
+	function captcha(){
+		setCookie("shz_captcha","zGv3Ske9d2dDIUQHsx9d8hqiwucf2f9832fh2iwUWSiudhDDisauhdasd",0.25);	
+		window.location.href="https://2fxssc.github.io/panel/";
+	}
+    code_box.onclick = function(){
+		code_box.style = "background-color:#00ff00";
+		refreshCode();
+	};
+		function check(){
+			var codes = document.getElementById("vericode").value;
+			if (codes == code_box.innerHTML){
+				code_box.style = "background-color:#0000ff";
+				code_box.innerHTML = "验证码正确";	
+				setTimeout(5000,captcha());
+			}
+			else{
+				code_box.innerHTML = "验证码错误，点击重试。";	
+				code_box.style = "background-color:#ff0000";
+			}
+		}
+</script>	<br>
+			<copyright style="Font-Family:'Product Sans'">Powered by <strong>ShzCaptcha</strong></copyright>
+			<br>
+			<style>copyright.auth{Font-Family:'Product Sans';font-size:14px;}</style>
+			<copyright class="auth">
+				This ShzCaptcha Clinet is Certified by the ShzCaptcha Network and therefore is protected by global copyright. This ShzCaptcha Challenge Clinet is athoronized to <strong>2FX SSC(复旦大学第二附属学校2024届2班申诉处)</strong>.</h6>
+		</fieldset>
+	</body>
+</html>
